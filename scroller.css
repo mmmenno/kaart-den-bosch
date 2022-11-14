@@ -1,0 +1,56 @@
+.container {
+  background-color: #000;
+  /*height: 500px;*/
+  width: 100%;
+  /*overflow: scroll;*/
+  margin-top: 10px;
+}
+
+
+#neeneeneebigmap {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+}
+
+.photo-item {
+  /*width: 90%;*/
+  /*border-top: 1px solid #DDD;*/
+  /*display: inline-block;*/
+  margin: 10px 10px 10px 10px;
+}
+
+.photo-item__image {
+  display: inline-block;
+  max-width: 100%;
+  width: 100%;
+}
+
+.page-load-status {
+  background-color: #000;
+  display: none;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  /*border-top: 1px solid #DDD;*/
+  text-align: center;
+  color: #777;
+}
+
+.ui-tooltip-content {
+  font-size: smaller;
+}
+
+#lblOnlineOnly {
+  /*display: none;*/
+  font-weight: normal;
+  margin-top: 10px;
+  border-top: 2px solid white;
+  padding-top: 10px;
+}
+
+#lblOnlineOnly input {
+  margin-right: 5px;
+}
+
+
+

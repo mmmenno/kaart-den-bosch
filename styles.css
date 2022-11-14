@@ -1,0 +1,122 @@
+/* edb bruin:  #a8915e, edb blauw: #062158 */
+html, body{
+	margin:0;
+	padding-top: 0;
+	font-family: Lato,"Open Sans",Arial,sans-serif;
+	font-size: 16px;
+	background-color: #a8915e;
+	color: #f2ecdd;
+	height: 100%;
+}
+
+@media only screen and (max-width: 900px) {
+  	#bigmap {
+		width: 100%;
+		height: 60%;
+	}
+	#sidebar{
+		margin-left: 0;
+	}
+}
+@media only screen and (min-width: 900px) {
+  	#bigmap {
+  		position: fixed;
+		width: 75%;
+		height: 100%;
+		float: left;
+		margin-right: 20px;
+	}
+	#sidebar{
+		margin-left: 75%;
+	}
+}
+#sidebar{
+	padding: 20px;
+}
+#footer{
+	background-color: #062158;
+	padding: 20px 0 40px 0;
+}
+#hellothere{
+	margin-top: 30px;
+	margin-bottom: 160px;
+}
+#hellothere img{
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.smaller{
+	font-size: 14px;
+}
+.table>tbody>tr>td{
+	border-top: 1px solid #FC3272;
+}
+h1{
+	margin-top: 20px;
+	padding-bottom: 12px;
+	font-size: 32px;
+	border-bottom: 2px solid #f2ecdd;
+}
+h2{
+	margin-top: 12px;
+	padding-bottom: 6px;
+	font-size: 20px;
+	border-bottom: 2px solid #f2ecdd;
+	line-height: 1.4em;
+	cursor: pointer;
+}
+a, a:hover{
+	text-decoration: none;
+	color: #fff;
+	font-weight: bold;
+}
+
+.leaflet-left .leaflet-control{
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.leaflet-container .leaflet-control-attribution{
+	color: #000;
+}
+.leaflet-control-attribution a{
+	color: #000;
+}
+.leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar{
+	border: 2px solid #000;
+}
+.light{
+	color: #ccc;
+}
+.loader {
+  border: 10px solid #FC3272; /* Light grey */
+  border-top: 10px solid #FFD6D2; /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#sidebar .container{
+	padding: 0;
+}
+
+.einde {
+	margin-top: 10px;
+	display: none;
+}
+
+#btnBack {
+	position: absolute;
+	background-color: #a8915e;
+	left:10px;
+	top: 10px;
+	width: 24px;
+	height: 23px;
+	text-align: center;
+	padding-top: 1px;
+}
