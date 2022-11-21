@@ -111,7 +111,7 @@ a, a:hover{
 }
 
 #btnBack {
-	position: absolute;
+	position: fixed;
 	background-color: #a8915e;
 	left:10px;
 	top: 10px;
@@ -119,4 +119,39 @@ a, a:hover{
 	height: 23px;
 	text-align: center;
 	padding-top: 1px;
+}
+#images{
+  width: 100%;
+  margin-top: 10px;
+}
+
+.mediumpic {
+  /*width: 90%;*/
+	display: inline-block;
+  /*border-top: 1px solid #DDD;*/
+  margin: 4px 4px 0 0;
+}
+
+.largepic {
+  /*width: 90%;*/
+	display: block;
+  /*border-top: 1px solid #DDD;*/
+  margin: 10px 10px 0 0;
+}
+
+.smallpic {
+  /*width: 90%;*/
+	display: inline-block;
+  /*border-top: 1px solid #DDD;*/
+  margin: 4px 4px 0 0;
+}
+
+.mediumpic .photo-item__image {
+	height: 60px;
+}
+.largepic .photo-item__image {
+	width: 100%;
+}
+.smallpic .photo-item__image {
+	height: 40px;
 }

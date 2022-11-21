@@ -50,21 +50,14 @@
   <div id="wd">
   </div>
 
-  <div id="sparql">
+  <div id="images">
   </div>
 
   
 
   <div class="container"></div>
-  <p class="einde">Einde...</p>
 
-  <div class="page-load-status">
-    <div class="loader-ellips infinite-scroll-request">
-      <img src="loading.gif">
-    </div>
-    <p class="infinite-scroll-last">End of content</p>
-    <p class="infinite-scroll-error">No more pages to load</p>
-  </div>
+  
 
 </div>
 
@@ -72,10 +65,10 @@
 
 <!-- .photo-item template HTML -->
 <script type="text/html" id="photo-item-template">
-  <div class="photo-item" id="{{guid}}">
-    <a data-fancybox="gallery" data-caption="<h2>{{description}}</h2>Datum: {{beginTimeStamp}} - {{endTimeStamp}}<br/>Licentie: {{rights}}<br/><a target='_blank' href='https://hetutrechtsarchief.nl/collectie/beeldmateriaal/catalogusnummer/{{catalogusnummer}}'>https://hetutrechtsarchief.nl/collectie/beeldmateriaal/catalogusnummer/{{catalogusnummer}}</a>" 
-        href="https://proxy.archieven.nl/download/39/{{guid}}">
-      <img class="photo-item__image" title="{{description}}" src="https://proxy.archieven.nl/thumb/39/{{guid}}"/>
+  <div class="photo-item" id="{{isShownAt}}">
+    <a data-fancybox="gallery" data-caption="<h2>{{description}}</h2>Datum: {{datum}}<br/>Licentie: {{rights}}<br/><a target='_blank' href='https://hetutrechtsarchief.nl/collectie/beeldmateriaal/catalogusnummer/{{catalogusnummer}}'>https://hetutrechtsarchief.nl/collectie/beeldmateriaal/catalogusnummer/{{catalogusnummer}}</a>" 
+        href="{{isShownAt}}">
+      <img class="photo-item__image" title="{{description}}" src="{{isShownBy}}"/>
     </a>
   </div>
 </script>
@@ -86,7 +79,7 @@
   $(document).ready(function() {
     createMap();
     refreshMap();
-    window.apiBase = 'sparql.php?wikidataID=';
+    window.apiBase = 'images.php?wikidataID=';
   });
 
   function createMap(){
@@ -200,34 +193,17 @@
     var props = $(this)[0].feature.properties;
     console.log(props);
     var naam = decodeURIComponent(props['nm']);
-    var kopje = naam;
+
     if(props['wd'].length){
-      var sparqlquery = 
-`
-PREFIX edm: <http://www.europeana.eu/schemas/edm/>
-PREFIX dct: <http://purl.org/dc/terms/>
-PREFIX dc: <http://purl.org/dc/elements/1.1/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
+      window.wikidataID = props['wd'];
+      var kopje = '<a target="_blank" href="http://www.wikidata.org/entity/' + props['wd'] + '">' + naam + '</a>';
+    }else{
+      var kopje = naam;
+    }
 
-SELECT ?widget WHERE {
-  ?cho dct:spatial <http://www.wikidata.org/entity/` + props['wd'] + `> .
-  ?cho edm:isShownBy ?img .
-  ?cho edm:isShownAt ?rec .
-  OPTIONAL{
-    ?cho sem:hasBeginTimeStamp ?chodate .
-  }
-  ?cho dc:description ?description .
-  BIND(CONCAT(
-    '<a href="',?cho,'"><img style="height:170px;" src="',?img,'"></a>',
-    ?description,'<br />','<strong>',?chodate,'</strong>'
-  ) AS ?widget)
-} 
-LIMIT 100`;
-
-      var encodedquery = encodeURIComponent(sparqlquery);
-      var endpointurl = 'https://druid.datalegend.net/HetUtrechtsArchief/beeldbank/sparql/beeldbank#query=' + encodedquery + '&endpoint=https%3A%2F%2Fdruid.datalegend.net%2F_api%2Fdatasets%2Fhetutrechtsarchief%2Fbeeldbank%2Fservices%2Fbeeldbank%2Fsparql&requestMethod=POST&tabTitle=Query&headers=%7B%7D&contentTypeConstruct=text%2Fturtle%2C*%2F*%3Bq%3D0.9&contentTypeSelect=application%2Fsparql-results%2Bjson%2C*%2F*%3Bq%3D0.9&outputFormat=gallery'
+    
+    if(props['wd'].length){
+      $('#images').load('images.php?wikidataID=' + props['wd']);
     }
 
     if(props.cnt>1){
@@ -237,20 +213,9 @@ LIMIT 100`;
     }
     $('#plaats').html(kopje);
 
-    if(props['bag'].length){
-      $('#bag').html('<a target="_blank" href="https://bag.basisregistraties.overheid.nl/bag/id/openbare-ruimte/' + props['bag'] + '">bagid: ' + props['bag'] + '</a>');
-    }else{
-      $('#bag').html('');
-    }
+    
 
-    if(props['wd'].length){
-      window.wikidataID = props['wd'];
-      initScroller();
-      $('#wd').html('<a target="_blank" href="http://www.wikidata.org/entity/' + props['wd'] + '">wikidata: ' + props['wd'] + '</a>');
-      $('#sparql').html('<a target="_blank" href="' + endpointurl + '">sparql het zelf</a>');
-    }else{
-      $('#wd').html('huh');
-    }
+    
     
   }
 

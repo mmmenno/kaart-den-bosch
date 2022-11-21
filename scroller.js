@@ -7,8 +7,8 @@ function initScroller() {
 
   var $container = $('.container').infiniteScroll({
     path: function() {
-      // console.log("this: ",this);
-      // console.log("path function", this.pageIndex);
+       console.log("this: ",this);
+       console.log("path function", this.pageIndex);
       return window.apiBase + window.wikidataID+'&page=' + this.pageIndex;
     },
     // load response as flat text
