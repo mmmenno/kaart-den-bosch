@@ -45,7 +45,7 @@
 
 			<p>Wikidata wel, biedt zelf goede identifiers, en kan bovendien als hub fungeren - je kan er links naar o.a. de Bossche Encyclopedie en <abbr title="Basisadministratie Adressen en Gebouwen">BAG</abbr> in kwijt.</p>
 
-			<p>Bovendien kan je Wikidata ook vragen kunt stellen, zoals '<a href="w.wiki/5sJZ">geef straten die verdwenen zijn</a>' of '<a href="https://w.wiki/5vVq">geef straten die naar vrouwen vernoemd zijn</a>'. Die gegevens kun je altijd downloaden, bijvoorbeeld als csv-bestand.</p>
+			<p>Bovendien kan je Wikidata ook vragen kunt stellen, zoals '<a href="https://w.wiki/5sJZ">geef straten die verdwenen zijn</a>' of '<a href="https://w.wiki/5vVq">geef straten die naar vrouwen vernoemd zijn</a>'. Die gegevens kun je altijd downloaden, bijvoorbeeld als csv-bestand.</p>
 
 		</div>
 	</div>
