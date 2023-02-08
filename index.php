@@ -21,7 +21,8 @@
 
      <link rel="stylesheet" href="styles.css" />
 
-	
+	<script defer data-domain="hicsuntleones.nl" src="https://plausible.io/js/plausible.js"></script>
+
 	
 </head>
 <body>
