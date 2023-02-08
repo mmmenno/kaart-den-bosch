@@ -30,6 +30,9 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+  <script defer data-domain="hicsuntleones.nl" src="https://plausible.io/js/plausible.js"></script>
+
+
 </head>
 <body>
 
